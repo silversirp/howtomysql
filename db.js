@@ -11,10 +11,10 @@ con.connect(function (err){
     if (err) throw err;
     console.log("Connected!");
 
-    var sql = "INSERT INTO customers (name, address) VALUES ('Michelle', 'Blue Village 1')";
+    var sql = "SELECT * FROM customers";
 
     con.query(sql, function (err, result) {
         if(err) throw err;
-        console.log("1 record inserted, ID: " + result.insertId);
+        console.log(result);
     });
 });
