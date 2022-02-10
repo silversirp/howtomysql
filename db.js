@@ -11,7 +11,7 @@ con.connect(function (err){
     if (err) throw err;
     console.log("Connected!");
 
-    var sql = "SELECT * FROM customers";
+    var sql = "SELECT name, address FROM customers";
 
     con.query(sql, function (err, result) {
         if(err) throw err;
