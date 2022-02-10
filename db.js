@@ -12,9 +12,9 @@ con.connect(function (err){
     console.log("Connected!");
 
     var adr = 'Mountain 21';
-    var sql = 'SELECT * FROM customers WHERE address = ' + mysql.escape(adr);
+    var sql = 'SELECT * FROM customers WHERE address = ?';
 
-    con.query(sql, function (err, result) {
+    con.query(sql, [adr], function (err, result) {
         if(err) throw err;
         console.log(result);
     });
