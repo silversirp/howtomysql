@@ -14,6 +14,7 @@ con.connect(function (err){
 
 
     var sql = "DROP TABLE if exists customers";
+
     con.query(sql, function (err, result) {
         if (err) throw err;
         console.log(result);
