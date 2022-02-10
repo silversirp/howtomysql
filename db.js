@@ -13,7 +13,7 @@ con.connect(function (err){
 
 
 
-    con.query("SELECT * FROM customers ORDER BY name", function (err, result) {
+    con.query("SELECT * FROM customers ORDER BY name DESC", function (err, result) {
         if(err) throw err;
         console.log(result);
     });
