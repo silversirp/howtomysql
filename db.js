@@ -13,8 +13,8 @@ con.connect(function (err){
 
     var sql = "SELECT name, address FROM customers";
 
-    con.query(sql, function (err, result) {
+    con.query(sql, function (err, result, fields) {
         if(err) throw err;
-        console.log(result);
+        console.log(fields);
     });
 });
