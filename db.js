@@ -11,10 +11,10 @@ con.connect(function (err){
     if (err) throw err;
     console.log("Connected!");
 
-    var sql = "SELECT name, address FROM customers";
+    var sql = "SELECT * FROM customers WHERE address = 'Park Lane 38'";
 
-    con.query(sql, function (err, result, fields) {
+    con.query(sql, function (err, result) {
         if(err) throw err;
-        console.log(fields);
+        console.log(result);
     });
 });
