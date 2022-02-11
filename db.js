@@ -10,7 +10,7 @@ var con = mysql.createConnection({
 con.connect(function (err){
     if (err) throw err;
     console.log("Connected!");
-    var sql = "SELECT * FROM customers LIMIT 2, 5";
+    var sql = "create table users (id int not null auto_increment primary key, name varchar(50), favourite_product int)";
     con.query(sql, function (err, result) {
         if (err) throw err;
         console.log(result);
