@@ -10,10 +10,7 @@ var con = mysql.createConnection({
 con.connect(function (err){
     if (err) throw err;
     console.log("Connected!");
-    var sql = "SELECT users.name AS user,\n" +
-        "products.name AS favorite\n" +
-        "FROM users\n" +
-        "LEFT JOIN products ON users.favourite_product = products.id";
+    var sql = "SELECT users.name AS user, products.name AS favorite FROM users RIGHT JOIN products ON users.favourite_product = products.id";
 
 
     con.query(sql, function (err, result) {
