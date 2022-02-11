@@ -10,16 +10,11 @@ var con = mysql.createConnection({
 con.connect(function (err){
     if (err) throw err;
     console.log("Connected!");
-    var sql = "INSERT INTO products (id, name) VALUES ?";
-    var values = [
-        [154, 'Chocolate Heaven'],
-        [155, 'Tasty Lemons'],
-        [156, 'Vanilla Dreams']
-    ];
+    var sql = "SELECT users.name AS user, products.name AS favourite FROM users JOIN products ON users.favourite_product = products.id";
 
 
-    con.query(sql, [values], function (err, result) {
+    con.query(sql, function (err, result) {
         if (err) throw err;
-        console.log("Number of records inserted: " + result.affectedRows);
+        console.log(result);
     });
 });
