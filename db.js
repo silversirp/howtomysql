@@ -10,9 +10,16 @@ var con = mysql.createConnection({
 con.connect(function (err){
     if (err) throw err;
     console.log("Connected!");
-    var sql = "create table products (id int not null primary key, name varchar(50))";
-    con.query(sql, function (err, result) {
+    var sql = "INSERT INTO products (id, name) VALUES ?";
+    var values = [
+        [154, 'Chocolate Heaven'],
+        [155, 'Tasty Lemons'],
+        [156, 'Vanilla Dreams']
+    ];
+
+
+    con.query(sql, [values], function (err, result) {
         if (err) throw err;
-        console.log(result);
+        console.log("Number of records inserted: " + result.affectedRows);
     });
 });
